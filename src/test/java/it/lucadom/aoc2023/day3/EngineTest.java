@@ -31,19 +31,44 @@ class EngineTest {
 
     @Test
     void neighbours() {
-        assertEquals(List.of("r", "a", "s", "d", "f"),
+        assertEquals(List.of(
+                new Coord(0, 3),
+                new Coord(1, 0),
+                new Coord(1, 1),
+                new Coord(1, 2),
+                new Coord(1, 3)
+                ),
                 new Engine(List.of(
                         "123rt",
                         "asdfg",
                         "zxcvb")).neighbours(new PartNumber(new Coord(0, 0), 123)));
 
-        assertEquals(List.of("w", "s", "d", "f", "g"),
+        assertEquals(List.of(
+                new Coord(0, 1),
+                new Coord(1, 1),
+                new Coord(1, 2),
+                new Coord(1, 3),
+                new Coord(1, 4)
+                ),
                 new Engine(List.of(
                         "qw123",
                         "asdfg",
                         "zxcvb")).neighbours(new PartNumber(new Coord(0, 2), 123)));
 
-        assertEquals(List.of("q", "w", "e", "r", "t", "a", "g", "z", "x", "c", "v", "b"),
+        assertEquals(List.of(
+                new Coord(0,0),
+                new Coord(0,1),
+                new Coord(0,2),
+                new Coord(0,3),
+                new Coord(0,4),
+                new Coord(1,0),
+                new Coord(1,4),
+                new Coord(2,0),
+                new Coord(2,1),
+                new Coord(2,2),
+                new Coord(2,3),
+                new Coord(2,4)
+                ),
                 new Engine(List.of(
                 "qwert",
                 "a123g",
@@ -59,5 +84,15 @@ class EngineTest {
                 "467..114..",
                 "...*......",
                 "..35..633.")).partNumbers());
+    }
+
+    @Test
+    void gears() {
+        assertEquals(List.of(
+                new Gear(new Coord(1, 3), 467, 35)
+        ), new Engine(List.of(
+                "467..114..",
+                "...*......",
+                "..35..633.")).gears());
     }
 }
