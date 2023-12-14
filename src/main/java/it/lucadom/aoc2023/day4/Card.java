@@ -22,9 +22,14 @@ public record Card(int id, List<Integer> winningNumbers, List<Integer> yourNumbe
     }
 
     public int points() {
-        long found = yourNumbers.stream()
-                .filter(winningNumbers::contains)
-                .count();
+        long found = found();
         return found == 0 ? 0 : (int) Math.pow(2, found-1);
     }
+
+    public long found() {
+        return yourNumbers.stream()
+                .filter(winningNumbers::contains)
+                .count();
+    }
+
 }

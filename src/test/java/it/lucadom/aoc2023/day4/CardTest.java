@@ -23,4 +23,13 @@ class CardTest {
         assertEquals(2, new Card(1, List.of(1, 2), List.of(1, 2, 3)).points());
         assertEquals(8, new Card(1, List.of(41, 48, 83, 86, 17), List.of(83, 86, 6, 31, 17, 9, 48, 53)).points());
     }
+
+    @Test
+    void found() {
+        assertEquals(0, new Card(1, List.of(1), List.of(2)).found());
+        assertEquals(1, new Card(1, List.of(1, 2), List.of(2, 3)).found());
+        assertEquals(2, new Card(1, List.of(1, 2), List.of(1, 2, 3)).found());
+        assertEquals(4, new Card(1, List.of(41, 48, 83, 86, 17), List.of(83, 86, 6, 31, 17, 9, 48, 53)).found());
+    }
+
 }
