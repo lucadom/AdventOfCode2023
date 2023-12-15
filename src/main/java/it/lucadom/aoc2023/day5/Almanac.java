@@ -1,6 +1,7 @@
 package it.lucadom.aoc2023.day5;
 
 import java.util.*;
+import java.util.stream.LongStream;
 
 public record Almanac(List<Long> seeds, List<Mapping> mappings) {
 
@@ -53,4 +54,20 @@ public record Almanac(List<Long> seeds, List<Mapping> mappings) {
                 .orElse(0L);
     }
 
+    /**
+     * This method gives the correct answer to Puzzle 5.2 (2520479),
+     * but it takes way too much time (like 45+ min.)
+     */
+    public long lowestLocationFromSeedRange() {
+        long min = Long.MAX_VALUE;
+        for (Iterator<Long> it = seeds.iterator(); it.hasNext();) {
+            long start = it.next();
+            long length = it.next();
+            System.out.println("Start " + start + ", length " + length);
+            for (long l = start; l < start+length; l++) {
+                min = Math.min(min, map("seed", "location", l));
+            }
+        }
+        return min;
+    }
 }

@@ -34,4 +34,5 @@ class AlmanacTest {
         assertEquals(100, almanac.map("a", "c", 0));
         assertEquals(1000, almanac.map("a", "d", 0));
     }
+
 }
