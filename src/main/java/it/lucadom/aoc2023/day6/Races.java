@@ -1,26 +1,28 @@
 package it.lucadom.aoc2023.day6;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public record Races(List<Race> race) {
 
     public static Races fromInput(List<String> input) {
-        int[] times = Arrays.stream(input.get(0).split(":")[1].trim().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-        int[] distances =  Arrays.stream(input.get(1).split(":")[1].trim().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        List<BigInteger> times = Arrays.stream(input.get(0).split(":")[1].trim().split("\\s+"))
+                .map(BigInteger::new)
+                .toList();
+        List<BigInteger> distances = Arrays.stream(input.get(1).split(":")[1].trim().split("\\s+"))
+                .map(BigInteger::new)
+                .toList();
         List<Race> races = new ArrayList<>();
-        for (int i=0; i<times.length; i++) {
-            races.add(new Race(times[i], distances[i]));
+        for (int i=0; i<times.size(); i++) {
+            races.add(new Race(times.get(i), distances.get(i)));
         }
         return new Races(races);
     }
 
-    public long beatenTogether() {
-        return race.stream().mapToLong(Race::wins).reduce(1, (a, b) -> a*b);
+    public BigInteger beatenTogether() {
+        return race.stream().map(Race::wins).reduce(BigInteger.valueOf(1), BigInteger::multiply);
     }
 }
