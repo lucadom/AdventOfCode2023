@@ -29,10 +29,25 @@ class AlmanacTest {
     }
 
     @Test
-    void map() {
-        assertEquals(10, almanac.map("a", "b", 0));
-        assertEquals(100, almanac.map("a", "c", 0));
-        assertEquals(1000, almanac.map("a", "d", 0));
+    void mappingTo() {
+        assertEquals(atob, almanac.mappingTo("b"));
+        assertEquals(btoc, almanac.mappingTo("c"));
+        assertEquals(ctod, almanac.mappingTo("d"));
+        assertThrows(NoSuchElementException.class, () -> almanac.mappingTo("e"));
+    }
+
+    @Test
+    void fromSourceToDestination() {
+        assertEquals(10, almanac.fromSourceToDestination("a", "b", 0));
+        assertEquals(100, almanac.fromSourceToDestination("a", "c", 0));
+        assertEquals(1000, almanac.fromSourceToDestination("a", "d", 0));
+    }
+
+    @Test
+    void fromDestinationToSource() {
+        assertEquals(0, almanac.fromDestinationToSource("b", "a", 10));
+        assertEquals(0, almanac.fromDestinationToSource("c", "a", 100));
+        assertEquals(0, almanac.fromDestinationToSource("d", "a", 1000));
     }
 
 }

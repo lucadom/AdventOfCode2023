@@ -23,7 +23,7 @@ public class PuzzleSolver {
         System.out.println("Puzzle 4.1: " + new Puzzle4_1().solve("puzzle4"));
         System.out.println("Puzzle 4.2: " + new Puzzle4_2().solve("puzzle4"));
         System.out.println("Puzzle 5.1: " + new Puzzle5_1().solve("puzzle5"));
-        // System.out.println("Puzzle 5.2: " + new Puzzle5_2().solve("puzzle5"));
+        System.out.println("Puzzle 5.2: " + new Puzzle5_2().solve("puzzle5"));
     }
 
 }

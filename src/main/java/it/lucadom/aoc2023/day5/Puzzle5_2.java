@@ -9,7 +9,12 @@ public class Puzzle5_2 implements Puzzle {
     @Override
     public String solve(List<String> input) {
         Almanac almanac = Almanac.fromInput(input);
-        long lowestLocation = almanac.lowestLocationFromSeedRange();
+
+        // See lowestLocationFromSeedRange javadoc
+        // long lowestLocation = almanac.lowestLocationFromSeedRange();
+
+        long lowestLocation = almanac.lowestLocationFromLocations();
+
         return String.valueOf(lowestLocation);
     }
 

@@ -1,7 +1,6 @@
 package it.lucadom.aoc2023.day5;
 
 import java.util.*;
-import java.util.stream.LongStream;
 
 public record Almanac(List<Long> seeds, List<Mapping> mappings) {
 
@@ -37,19 +36,33 @@ public record Almanac(List<Long> seeds, List<Mapping> mappings) {
         return mappings().stream().filter(m -> m.source().equals(source)).findFirst().orElseThrow();
     }
 
-    public long map(String source, String destination, long value) {
+    public Mapping mappingTo(String destination) throws NoSuchElementException {
+        return mappings().stream().filter(m -> m.destination().equals(destination)).findFirst().orElseThrow();
+    }
+
+    public long fromSourceToDestination(String source, String destination, long value) {
         Mapping mapping = mappingFrom(source);
-        value = mapping.map(value);
+        value = mapping.mapToDestination(value);
         if (mapping.destination().equals(destination)) {
             return value;
         } else {
-            return map(mapping.destination(), destination, value);
+            return fromSourceToDestination(mapping.destination(), destination, value);
+        }
+    }
+
+    public long fromDestinationToSource(String destination, String source, long value) {
+        Mapping mapping = mappingTo(destination);
+        value = mapping.mapToSource(value);
+        if (mapping.source().equals(source)) {
+            return value;
+        } else {
+            return fromDestinationToSource(mapping.source(), source, value);
         }
     }
 
     public long lowestLocation() {
         return seeds.stream()
-                .map(s -> map("seed", "location", s))
+                .map(s -> fromSourceToDestination("seed", "location", s))
                 .min(Long::compareTo)
                 .orElse(0L);
     }
@@ -65,9 +78,38 @@ public record Almanac(List<Long> seeds, List<Mapping> mappings) {
             long length = it.next();
             System.out.println("Start " + start + ", length " + length);
             for (long l = start; l < start+length; l++) {
-                min = Math.min(min, map("seed", "location", l));
+                min = Math.min(min, fromSourceToDestination("seed", "location", l));
             }
         }
         return min;
     }
+
+    /**
+     * Ok, this is fast enough for now... (like 5 sec.)
+     */
+    public long lowestLocationFromLocations() {
+        long location = 0;
+        boolean found = false;
+        while (!found) {
+            long seed = fromDestinationToSource("location", "seed", location);
+            if (isValidSeed(seed)) {
+                found = true;
+            } else {
+                location++;
+            }
+        }
+        return location;
+    }
+
+    public boolean isValidSeed(long seed) {
+        for (Iterator<Long> it = seeds.iterator(); it.hasNext();) {
+            long start = it.next();
+            long length = it.next();
+            if (seed >= start && seed < start+length) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
