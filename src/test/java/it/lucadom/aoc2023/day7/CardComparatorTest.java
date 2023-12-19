@@ -9,10 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardComparatorTest {
 
-    private final CardComparator cardComparator = new CardComparator();
-
     @Test
     void compare() {
+        CardComparator cardComparator = new CardComparator("AKQJT98765432");
         assertEquals(-1, cardComparator.compare("A", "K"));
         assertEquals(0, cardComparator.compare("Q", "Q"));
         assertEquals(1, cardComparator.compare("4", "7"));
@@ -20,6 +19,7 @@ class CardComparatorTest {
 
     @Test
     void sort() {
+        CardComparator cardComparator = new CardComparator("AKQJT98765432");
         assertEquals("AKQJT98765432", Arrays.stream("T4532JQ67K8A9".split(""))
                 .sorted(cardComparator)
                 .collect(Collectors.joining())

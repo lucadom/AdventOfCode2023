@@ -4,9 +4,14 @@ import java.util.Comparator;
 
 public class HandCardsComparator implements Comparator<String> {
 
+    private final CardComparator cardComparator;
+
+    public HandCardsComparator(CardComparator cardComparator) {
+        this.cardComparator = cardComparator;
+    }
+
     @Override
     public int compare(String h1, String h2) {
-        CardComparator cardComparator = new CardComparator();
         int result = 0;
         for (int i=0; i<h1.length(); i++) {
             result = cardComparator.compare(

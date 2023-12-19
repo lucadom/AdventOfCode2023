@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HandCardsComparatorTest {
 
-    private final HandCardsComparator handCardsComparator = new HandCardsComparator();
+    private final CardComparator cardComparator = new CardComparator("AKQJT98765432");
+    private final HandCardsComparator handCardsComparator = new HandCardsComparator(cardComparator);
 
     @Test
     void compare() {
