@@ -16,6 +16,7 @@ import it.lucadom.aoc2023.day7.Puzzle7_1;
 import it.lucadom.aoc2023.day7.Puzzle7_2;
 import it.lucadom.aoc2023.day8.Puzzle8_1;
 import it.lucadom.aoc2023.day8.Puzzle8_2;
+import it.lucadom.aoc2023.day9.Puzzle9_1;
 
 public class PuzzleSolver {
 
@@ -36,6 +37,7 @@ public class PuzzleSolver {
         System.out.println("Puzzle 7.2: " + new Puzzle7_2().solve("puzzle7"));
         System.out.println("Puzzle 8.1: " + new Puzzle8_1().solve("puzzle8"));
         System.out.println("Puzzle 8.2: " + new Puzzle8_2().solve("puzzle8"));
+        System.out.println("Puzzle 9.1: " + new Puzzle9_1().solve("puzzle9"));
     }
 
 }
