@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Puzzle8_1Test {
+class Puzzle8_2Test {
 
     @Test
     void solve() {
-        assertEquals("2", new Puzzle8_1().solve("puzzle8_1_1"));
-        assertEquals("6", new Puzzle8_1().solve("puzzle8_1_2"));
+        assertEquals("6", new Puzzle8_2().solve("puzzle8_2"));
     }
 
 }

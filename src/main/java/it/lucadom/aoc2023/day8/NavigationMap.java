@@ -28,4 +28,23 @@ public record NavigationMap(String instructions, Map<String, Pair> mapNodes) {
         return total;
     }
 
+    public long totalSimultaneousSteps() {
+        int[] pathsSteps = mapNodes.keySet().stream()
+                .filter(k -> k.endsWith("A"))
+                .mapToInt(k -> {
+                    int total = 0;
+                    String currentPoint = k;
+                    Iterator<Character> instructionsIterator = new LoopIterator(instructions);
+                    while (!currentPoint.endsWith("Z")) {
+                        total++;
+                        currentPoint = instructionsIterator.next() == 'L'
+                                ? mapNodes.get(currentPoint).left()
+                                : mapNodes.get(currentPoint).right();
+                    }
+                    return total;
+                })
+                .toArray();
+        return MathUtils.lcm_of_array_elements(pathsSteps);
+    }
+
 }
