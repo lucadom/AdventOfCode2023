@@ -1,6 +1,5 @@
 package it.lucadom.aoc2023.day9;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,10 +14,15 @@ public record Oasis(List<List<Integer>> values) {
         return new Oasis(values);
     }
 
-    public long sumExtrapolatedValues() {
+    public long sumExtrapolatedValuesForward() {
         return values.stream()
                 .mapToLong(SequenceUtils::predictNextValue)
                 .sum();
     }
 
+    public long sumExtrapolatedValuesBackward() {
+        return values.stream()
+                .mapToLong(SequenceUtils::extrapolatePreviousValue)
+                .sum();
+    }
 }

@@ -1,6 +1,7 @@
 package it.lucadom.aoc2023.day9;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SequenceUtils {
@@ -22,4 +23,17 @@ public class SequenceUtils {
         return nextSequence;
     }
 
+    public static long extrapolatePreviousValue(List<Integer> sequence) {
+        List<List<Integer>> sequences = new ArrayList<>();
+        while (sequence.stream().anyMatch(i -> i != 0)) {
+            sequences.add(sequence);
+            sequence = nextSequence(sequence);
+        }
+        Collections.reverse(sequences);
+        long previousValue = 0;
+        for (List<Integer> s : sequences) {
+            previousValue = s.get(0) - previousValue;
+        }
+        return previousValue;
+    }
 }
