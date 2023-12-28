@@ -1,5 +1,7 @@
 package it.lucadom.aoc2023.day3;
 
+import it.lucadom.aoc2023.shared.Coord;
+
 import java.util.*;
 import java.util.function.Predicate;
 

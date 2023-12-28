@@ -1,5 +1,6 @@
 package it.lucadom.aoc2023.day3;
 
+import it.lucadom.aoc2023.shared.Coord;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
