@@ -11,7 +11,7 @@ public enum HandType {
 
     public final int strength;
 
-    private HandType(int strength) {
+    HandType(int strength) {
         this.strength = strength;
     }
 

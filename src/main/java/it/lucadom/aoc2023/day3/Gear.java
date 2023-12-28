@@ -7,4 +7,4 @@ record Gear(Coord coord, int first, int second) {
     public int ratio() {
         return first * second;
     }
-};
+}

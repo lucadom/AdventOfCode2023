@@ -17,11 +17,11 @@ public record Race(BigInteger time, BigInteger bestDistance) {
         while (distance.compareTo(bestDistance) <= 0 && hold.compareTo(time) <= 0) {
             hold = hold.add(BigInteger.ONE);
             distance = hold.multiply(time.subtract(hold));
-        };
+        }
         if (hold.compareTo(time) <= 0) {
             do {
-                wins = wins.add(BigInteger.ONE);;
-                hold = hold.add(BigInteger.ONE);;
+                wins = wins.add(BigInteger.ONE);
+                hold = hold.add(BigInteger.ONE);
                 distance = hold.multiply(time.subtract( hold));
             } while (distance.compareTo(bestDistance) > 0 && hold.compareTo(time) <= 0);
         }

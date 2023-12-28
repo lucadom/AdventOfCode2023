@@ -112,7 +112,7 @@ public record PuzzleMap(String[][] tiles) {
 
     /**
      * Get relationship between a point and a polygon using ray-casting algorithm
-     * (see https://stackoverflow.com/a/63436180)
+     * (see <a href="https://stackoverflow.com/a/63436180">...</a>)
      *
      * @param point the point to check
      * @param polygon the polygon
@@ -138,7 +138,7 @@ public record PuzzleMap(String[][] tiles) {
                 if (point.row() == a.row() && b.row() >= a.row() || point.row() == b.row() && a.row() >= b.row()) {
                     continue;
                 }
-                // calc cross product `PA X PB`, P lays on left side of AB if c > 0
+                // calc cross product `PA X PB`, P lies on left side of AB if c > 0
             int c = (a.col() - point.col()) * (b.row() - point.row()) - (b.col() - point.col()) * (a.row() - point.row());
                 if (c == 0) {
                     return 0;

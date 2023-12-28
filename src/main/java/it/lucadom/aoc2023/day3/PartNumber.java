@@ -7,4 +7,4 @@ record PartNumber(Coord start, int number) {
         return String.valueOf(number).length();
     }
 
-};
+}

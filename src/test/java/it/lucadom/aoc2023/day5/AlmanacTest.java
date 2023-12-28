@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AlmanacTest {
 
-    Mapping atob = new Mapping("a", "b", List.of(
+    final Mapping atob = new Mapping("a", "b", List.of(
             new Range(10, 0, 10)
     ));
-    Mapping btoc = new Mapping("b", "c", List.of(
+    final Mapping btoc = new Mapping("b", "c", List.of(
             new Range(100, 10, 10)
     ));
-    Mapping ctod = new Mapping("c", "d", List.of(
+    final Mapping ctod = new Mapping("c", "d", List.of(
             new Range(1000, 100, 10)
     ));
-    Almanac almanac = new Almanac(null, List.of(atob, btoc, ctod));
+    final Almanac almanac = new Almanac(null, List.of(atob, btoc, ctod));
 
     @Test
     void mappingFrom() {

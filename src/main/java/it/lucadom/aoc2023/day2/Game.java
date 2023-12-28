@@ -26,4 +26,4 @@ public record Game(int id, List<Cubes> cubes) {
         return new Cubes(blue, red, green);
     }
 
-};
+}

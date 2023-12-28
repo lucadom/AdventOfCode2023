@@ -114,4 +114,4 @@ record Engine(int rows, int cols, String[][] schematic) {
                 .map(gc -> new Gear(gc.getKey(), gc.getValue().get(0).number(), gc.getValue().get(1).number()))
                 .toList();
     }
-};
+}

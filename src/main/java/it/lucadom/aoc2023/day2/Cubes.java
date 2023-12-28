@@ -27,4 +27,4 @@ public record Cubes(int blue, int red, int green) {
         }
         return Math.max(red, 1) * Math.max(green, 1) * Math.max(blue, 1);
     }
-};
+}

@@ -28,7 +28,7 @@ public record Almanac(List<Long> seeds, List<Mapping> mappings) {
                 }
                 mappings.add(mapping);
             }
-        };
+        }
         return new Almanac(seeds, mappings);
     }
 
