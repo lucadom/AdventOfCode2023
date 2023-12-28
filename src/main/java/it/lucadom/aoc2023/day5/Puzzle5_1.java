@@ -1,7 +1,6 @@
 package it.lucadom.aoc2023.day5;
 
 import it.lucadom.aoc2023.Puzzle;
-import it.lucadom.aoc2023.day4.Card;
 
 import java.util.List;
 

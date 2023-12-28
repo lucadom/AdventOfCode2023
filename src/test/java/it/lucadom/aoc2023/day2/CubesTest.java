@@ -3,7 +3,6 @@ package it.lucadom.aoc2023.day2;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CubesTest {
 

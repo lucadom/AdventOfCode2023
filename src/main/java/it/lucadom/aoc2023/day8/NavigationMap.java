@@ -1,6 +1,9 @@
 package it.lucadom.aoc2023.day8;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public record NavigationMap(String instructions, Map<String, Pair> mapNodes) {
     public static NavigationMap fromInput(List<String> input) {

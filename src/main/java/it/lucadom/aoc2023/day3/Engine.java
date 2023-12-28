@@ -2,7 +2,10 @@ package it.lucadom.aoc2023.day3;
 
 import it.lucadom.aoc2023.shared.Coord;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 record Engine(int rows, int cols, String[][] schematic) {

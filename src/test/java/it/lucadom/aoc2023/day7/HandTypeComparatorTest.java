@@ -2,9 +2,6 @@ package it.lucadom.aoc2023.day7;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HandTypeComparatorTest {

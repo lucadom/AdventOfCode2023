@@ -1,9 +1,8 @@
 package it.lucadom.aoc2023.day10;
 
-import it.lucadom.aoc2023.day9.Puzzle9_2;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Puzzle10_1Test {
 

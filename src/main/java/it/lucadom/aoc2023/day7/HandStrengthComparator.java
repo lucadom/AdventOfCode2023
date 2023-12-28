@@ -1,7 +1,5 @@
 package it.lucadom.aoc2023.day7;
 
-import it.lucadom.aoc2023.day4.Card;
-
 import java.util.Comparator;
 
 public class HandStrengthComparator implements Comparator<Hand> {

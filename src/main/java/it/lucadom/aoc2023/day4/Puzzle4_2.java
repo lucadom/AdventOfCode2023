@@ -2,10 +2,8 @@ package it.lucadom.aoc2023.day4;
 
 import it.lucadom.aoc2023.Puzzle;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Puzzle4_2 implements Puzzle {
 
